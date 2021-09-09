@@ -43,7 +43,22 @@ body {
 .last-text {
   align-self: flex-end;
 }
+.svg-right{
+  position: absolute;
+  z-index: -5;
+  top: 50vh;
+  right: 100px;
+}
+.svg-left{
+  transform: rotate(-45deg);
+  position: absolute;
+  z-index: -5;
+  top: 25vh;
+  left: 100px;
+}
 .container {
+  position: relative;
+  z-index: 10;
   min-width: 300px;
   max-width: 450px;
   transform: scale(1.1);
