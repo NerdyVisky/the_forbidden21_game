@@ -75,6 +75,7 @@ let isGameOver = () => {
 };
 let userWon = () => {
   totalDisplay.innerText = "21";
+  totalDisplay.style.color = "#e22929"
   option1.style.visibility = "hidden";
   option2.style.visibility = "hidden";
   option3.style.visibility = "hidden";
@@ -87,6 +88,7 @@ let userWon = () => {
 };
 let userLost = () => {
   totalDisplay.innerText = "21";
+  totalDisplay.style.color = "#e22929"
   resultPopup.style.backgroundColor = "#fce8e8"
   userResult.innerText = "LOST!";
   userResult.style.color = "#e22929";
