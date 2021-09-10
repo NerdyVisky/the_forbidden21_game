@@ -1,5 +1,9 @@
 let total = 0;
 let difficulty = localStorage.getItem('difficulty');
+let mode = document.querySelector('.level-indicator');
+let resultPopup = document.querySelector('.result-container');
+let userResult = document.querySelector('.user-result');
+let resultDes = document.querySelector('.result-desc');
 let userIncrement;
 let turnIndicator = document.querySelector(".turn-indicator");
 let compUpdate = document.querySelector(".compUpdate");
@@ -9,6 +13,14 @@ let option1 = document.querySelector(".option-1");
 let option2 = document.querySelector(".option-2");
 let option3 = document.querySelector(".option-3");
 let option4 = document.querySelector(".option-4");
+
+if(difficulty=="easy"){
+  mode.innerText = "Easy";
+  mode.style.background = "rgb(160, 255, 160)";
+}else if(difficulty=="hard"){
+  mode.innerText = "Hard";
+  mode.style.background = "#ff5959";
+}
 
 
 let counterUpdate = () => {
@@ -62,16 +74,32 @@ let isGameOver = () => {
   }
 };
 let userWon = () => {
-  totalDisplay.innerText = "WON!";
+  totalDisplay.innerText = "21";
   option1.style.visibility = "hidden";
   option2.style.visibility = "hidden";
   option3.style.visibility = "hidden";
   option4.style.visibility = "hidden";
-  setTimeout(counterReset, 2500);
+  resultPopup.style.backgroundColor = "rgb(223, 255, 223)"
+  userResult.innerText = "WON!";
+  userResult.style.color = "green";
+  resultDes.innerText = "Try 'hard' level to conquer The Forbidden 21 game.";
+  resultPopup.style.display = "block";
 };
 let userLost = () => {
-  totalDisplay.innerText = "LOST!";
-  setTimeout(counterReset, 2500);
+  totalDisplay.innerText = "21";
+  resultPopup.style.backgroundColor = "#fce8e8"
+  userResult.innerText = "LOST!";
+  userResult.style.color = "#e22929";
+  if(difficulty=="easy")
+  {
+    resultDes.innerText = "Looks like you need practice. Better luck next time!";
+    resultPopup.style.display = "block";
+  }else if(difficulty=="hard"){
+    resultDes.innerText = "Better luck next time!";
+    resultDes.style.textAlign = "center";
+    resultPopup.style.display = "block";
+  }
+  
 };
 
 let compTurn = () => {
