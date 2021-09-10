@@ -27,14 +27,16 @@ let counterReset = () => {
 let turnChangeToComp = () => {
   options.style.cursor = "not-allowed";
   options.style.pointerEvents = "none";
-  turnIndicator.style.top = "10%";
+  turnIndicator.style.background = "#e22929";
+  turnIndicator.style.bottom = "120px";
 };
 let turnChangeToUser = () => {
   option1.innerText = total + 1;
   option2.innerText = total + 2;
   option3.innerText = total + 3;
   option4.innerText = total + 4;
-  turnIndicator.style.top = "75%";
+  turnIndicator.style.background = "rgb(81, 119, 231)";
+  turnIndicator.style.bottom = "-65px";
   options.style.pointerEvents = "auto";
   options.style.cursor = "pointer";
 };
